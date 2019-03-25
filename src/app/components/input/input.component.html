@@ -1,5 +1,9 @@
-<form class="input-form">
+<form class="input-form" [formGroup]="inputForm">
   <mat-form-field class="input-full-width">
-    <textarea matInput placeholder="Input"></textarea>
+    <textarea
+      matInput
+      placeholder="Input"
+      formControlName="japanese"
+    ></textarea>
   </mat-form-field>
 </form>
