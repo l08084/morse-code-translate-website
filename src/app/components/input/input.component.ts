@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input',
@@ -23,5 +24,13 @@ export class InputComponent implements OnInit {
     this.inputForm = this.builder.group({
       japanese: ['', []]
     });
+
+    // 入力フォームの値が変更された場合、500ミリ秒間隔で値を取得する
+    this.inputForm
+      .get('japanese')
+      .valueChanges.pipe(debounceTime(500))
+      .subscribe(inputText => {
+        console.log(inputText);
+      });
   }
 }
