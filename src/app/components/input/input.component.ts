@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
@@ -10,6 +10,8 @@ import { debounceTime } from 'rxjs/operators';
 export class InputComponent implements OnInit {
   public inputForm: FormGroup;
   public japaneseControl: FormControl;
+
+  @Output() inputText = new EventEmitter<string>();
 
   constructor(private builder: FormBuilder) {
     // 入力フォームの初期設定を行う
@@ -33,8 +35,8 @@ export class InputComponent implements OnInit {
     this.inputForm
       .get('japanese')
       .valueChanges.pipe(debounceTime(500))
-      .subscribe(inputText => {
-        console.log(inputText);
+      .subscribe(text => {
+        this.inputText.emit(text);
       });
   }
 }
