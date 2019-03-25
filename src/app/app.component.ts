@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public setText = '';
+
   onInput(text: string) {
-    console.log(`app: ${text}`);
+    this.setText = text;
   }
 }
