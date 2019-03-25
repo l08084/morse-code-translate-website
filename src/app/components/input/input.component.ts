@@ -25,6 +25,10 @@ export class InputComponent implements OnInit {
       japanese: ['', []]
     });
 
+    this.convert();
+  }
+
+  private convert() {
     // 入力フォームの値が変更された場合、500ミリ秒間隔で値を取得する
     this.inputForm
       .get('japanese')
