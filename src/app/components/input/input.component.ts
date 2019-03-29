@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import { ConvertService } from 'src/app/service/convert.service';
 
 @Component({
   selector: 'app-input',
@@ -13,7 +14,10 @@ export class InputComponent implements OnInit {
 
   @Output() inputText = new EventEmitter<string>();
 
-  constructor(private builder: FormBuilder) {
+  constructor(
+    private builder: FormBuilder,
+    private convertService: ConvertService
+  ) {
     // 入力フォームの初期設定を行う
     this.createForm();
   }
@@ -36,7 +40,7 @@ export class InputComponent implements OnInit {
       .get('japanese')
       .valueChanges.pipe(debounceTime(500))
       .subscribe(text => {
-        this.inputText.emit(text);
+        this.inputText.emit(this.convertService.convertToMorseCode(text));
       });
   }
 }
