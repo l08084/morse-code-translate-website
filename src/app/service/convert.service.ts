@@ -1,10 +1,19 @@
 import { Injectable } from '@angular/core';
+import mapping from '../../assets/mapping.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConvertService {
-  constructor() {}
+  public morseMap: Map<string, string>;
+
+  constructor() {
+    console.log(mapping.katakana);
+    mapping.morse.forEach((code, index) => {
+      this.morseMap.set(mapping.hiragana[index], code);
+      this.morseMap.set(mapping.katakana[index], code);
+    });
+  }
 
   public convertToMorseCode(text = ''): string {
     const textList = text.trim().split('');
@@ -31,6 +40,14 @@ export class ConvertService {
         case 'え':
         case 'エ':
           code = '－・－－－';
+          break;
+        case 'お':
+        case 'オ':
+          code = '・－・・・';
+          break;
+        case 'か':
+        case 'カ':
+          code = '・－・・';
           break;
         default:
           code = '';
