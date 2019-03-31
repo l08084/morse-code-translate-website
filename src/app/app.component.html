@@ -1,2 +1,10 @@
+<mat-toolbar color="primary">
+  <span>
+    <mat-icon fontSet="fa" fontIcon="fa-language"></mat-icon>Morse Code 翻訳
+  </span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
 <app-input (inputText)="onInput($event)"></app-input>
 <app-output [text]="setText"></app-output>

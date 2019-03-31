@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { OutputComponent } from './components/output/output.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, InputComponent, OutputComponent],
@@ -17,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    MatToolbarModule,
+    MatIconModule,
     ReactiveFormsModule
   ],
   providers: [],
