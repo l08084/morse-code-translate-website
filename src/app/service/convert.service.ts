@@ -18,7 +18,7 @@ export class ConvertService {
   public convertToMorseCode(text = ''): string {
     const textList = text.trim().split('');
     const morseCodeList = this.mapping(textList);
-    return morseCodeList.join('　');
+    return morseCodeList.join('  ');
   }
 
   private mapping(textList: string[]): string[] {
