@@ -9,7 +9,7 @@ export class ConvertService {
 
   constructor() {
     this.morseMap = new Map<string, string>();
-    mapping.morse.forEach((code, index) => {
+    mapping.morseJp.forEach((code, index) => {
       this.morseMap.set(mapping.hiragana[index], code);
       this.morseMap.set(mapping.katakana[index], code);
     });
