@@ -9,14 +9,22 @@ export class ConvertService {
 
   constructor() {
     this.morseMap = new Map<string, string>();
+
+    // 日本語のモールス信号へのマッピング
     mapping.morseJp.forEach((code, index) => {
       this.morseMap.set(mapping.hiragana[index], code);
       this.morseMap.set(mapping.katakana[index], code);
     });
 
+    // 英語のモールス信号へのマッピング
     mapping.morseEn.forEach((code, index) => {
       this.morseMap.set(mapping.uppercaseAlphabet[index], code);
       this.morseMap.set(mapping.lowercaseAlphabet[index], code);
+    });
+
+    // 数字のモールス信号へのマッピング
+    mapping.morseNum.forEach((code, index) => {
+      this.morseMap.set(mapping.numbers[index], code);
     });
   }
 
