@@ -13,6 +13,11 @@ export class ConvertService {
       this.morseMap.set(mapping.hiragana[index], code);
       this.morseMap.set(mapping.katakana[index], code);
     });
+
+    mapping.morseEn.forEach((code, index) => {
+      this.morseMap.set(mapping.uppercaseAlphabet[index], code);
+      this.morseMap.set(mapping.lowercaseAlphabet[index], code);
+    });
   }
 
   public convertToMorseCode(text = ''): string {
