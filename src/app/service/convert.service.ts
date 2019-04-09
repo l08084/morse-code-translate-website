@@ -26,6 +26,11 @@ export class ConvertService {
     mapping.morseNum.forEach((code, index) => {
       this.morseMap.set(mapping.numbers[index], code);
     });
+
+    // 記号のモールス信号へのマッピング
+    mapping.morseSymbol.forEach((code, index) => {
+      this.morseMap.set(mapping.symbol[index], code);
+    });
   }
 
   public convertToMorseCode(text = ''): string {
