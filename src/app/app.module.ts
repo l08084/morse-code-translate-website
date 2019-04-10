@@ -10,9 +10,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, InputComponent, OutputComponent],
+  declarations: [
+    AppComponent,
+    InputComponent,
+    OutputComponent,
+    HeaderComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
