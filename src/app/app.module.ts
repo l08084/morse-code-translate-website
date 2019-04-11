@@ -11,12 +11,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
+import { MatSelectModule } from '@angular/material/select';
+import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     OutputComponent,
+    SelectComponent,
     HeaderComponent
   ],
   imports: [
@@ -27,6 +30,7 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     MatToolbarModule,
     MatIconModule,
+    MatSelectModule,
     ReactiveFormsModule
   ],
   providers: [],
