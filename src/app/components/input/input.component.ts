@@ -12,16 +12,20 @@ export class InputComponent implements OnInit {
   public inputForm: FormGroup;
   public japaneseControl: FormControl;
   public placeholderText: string;
+  public hintText: string;
 
   @Input()
   set convertType(convertType: string) {
     switch (convertType) {
       case '001':
         this.placeholderText = 'テキストを入力';
+        this.hintText =
+          'ひらがな、カタカナ、半角英数字のいずれかを入力してください';
         break;
       case '002':
       case '003':
-        this.placeholderText = 'モールス信号を入力';
+        this.placeholderText = `モールス信号を入力(ツーは'_'、トンは'.'、文字の間隔は半角スペース)`;
+        this.hintText = `モールス信号を入力してください(ツーは'_'、トンは'.'、文字の間隔は半角スペースでお願いします)`;
     }
   }
   @Output() inputText = new EventEmitter<string>();
