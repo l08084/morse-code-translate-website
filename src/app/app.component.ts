@@ -11,4 +11,8 @@ export class AppComponent {
   onInput(text: string) {
     this.setText = text;
   }
+
+  onSendConvertType(type: string) {
+    console.log(type);
+  }
 }

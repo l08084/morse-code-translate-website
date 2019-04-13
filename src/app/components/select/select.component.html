@@ -1,7 +1,7 @@
-<mat-form-field class="app-select">
-  <select matNativeControl required>
-    <option value="volvo">テキスト → モールス信号</option>
-    <option value="saab">欧文モールス信号 → テキスト</option>
-    <option value="saab">和文モールス信号 → テキスト</option>
+<mat-form-field [formGroup]="selectForm" class="app-select">
+  <select matNativeControl required formControlName="convertType">
+    <option value="001">テキスト → モールス信号</option>
+    <option value="002">欧文モールス信号 → テキスト</option>
+    <option value="003">和文モールス信号 → テキスト</option>
   </select>
 </mat-form-field>
