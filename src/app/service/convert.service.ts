@@ -11,7 +11,44 @@ export class ConvertService {
 
   constructor() {
     this.morseMap = new Map<string, string>();
+    this.createMorseMap();
+  }
 
+  /**
+   *
+   *
+   * @param {string} [text=''] 入力フォームの文字列
+   * @returns {string} 変換後の文字列
+   * @memberof ConvertService
+   */
+  public convertToMorseCode(text = ''): string {
+    const textList = text.trim().split('');
+    const morseCodeList = this.mapping(textList);
+    return morseCodeList.join('  ');
+  }
+
+  /**
+   *
+   *
+   * @private
+   * @param {string[]} textList 入力フォームの文字配列
+   * @returns {string[]} 変換後の文字配列
+   * @memberof ConvertService
+   */
+  private mapping(textList: string[]): string[] {
+    return textList.map(text =>
+      this.morseMap.has(text) ? this.morseMap.get(text) : ''
+    );
+  }
+
+  /**
+   * 日本語・アルファベットがキー、
+   * モールス信号がバリューになるMapを作成する。
+   *
+   * @private
+   * @memberof ConvertService
+   */
+  private createMorseMap(): void {
     // 日本語のモールス信号へのマッピング
     mapping.morseJp.forEach((code, index) => {
       this.morseMap.set(mapping.hiragana[index], code);
@@ -33,17 +70,5 @@ export class ConvertService {
     mapping.morseSymbol.forEach((code, index) => {
       this.morseMap.set(mapping.symbol[index], code);
     });
-  }
-
-  public convertToMorseCode(text = ''): string {
-    const textList = text.trim().split('');
-    const morseCodeList = this.mapping(textList);
-    return morseCodeList.join('  ');
-  }
-
-  private mapping(textList: string[]): string[] {
-    return textList.map(text =>
-      this.morseMap.has(text) ? this.morseMap.get(text) : ''
-    );
   }
 }
