@@ -42,8 +42,8 @@ export class ConvertService {
   }
 
   /**
-   * 日本語・アルファベットがキー、
-   * モールス信号がバリューになるMapを作成する。
+   * 日本語・アルファベットがKey、
+   * モールス信号がValueになるMapを作成する。
    *
    * @private
    * @memberof ConvertService
