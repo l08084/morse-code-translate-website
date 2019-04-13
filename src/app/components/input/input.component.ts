@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ConvertService } from 'src/app/service/convert.service';
@@ -12,6 +12,7 @@ export class InputComponent implements OnInit {
   public inputForm: FormGroup;
   public japaneseControl: FormControl;
 
+  @Input() convertType: string;
   @Output() inputText = new EventEmitter<string>();
 
   constructor(

@@ -7,12 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public setText = '';
+  public setConvertType = '001';
 
   onInput(text: string) {
     this.setText = text;
   }
 
   onSendConvertType(type: string) {
-    console.log(type);
+    this.setConvertType = type;
   }
 }

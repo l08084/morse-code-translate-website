@@ -1,4 +1,4 @@
 <app-header></app-header>
 <app-select (sendConvertType)="onSendConvertType($event)"></app-select>
-<app-input (inputText)="onInput($event)"></app-input>
-<app-output [text]="setText"></app-output>
+<app-input [convertType]="setConvertType" (inputText)="onInput($event)"></app-input>
+<app-output [convertType]="setConvertType" [text]="setText"></app-output>

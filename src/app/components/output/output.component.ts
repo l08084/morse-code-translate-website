@@ -7,4 +7,22 @@ import { Component, Input } from '@angular/core';
 })
 export class OutputComponent {
   @Input() text: string;
+  @Input()
+  set convertType(convertType: string) {
+    switch (convertType) {
+      case '001':
+        this.hintText = '入力したテキストのモールス信号が出力されます';
+        break;
+      case '002':
+        this.hintText =
+          '人力したモールス信号のテキスト(アルファベット)が出力されます';
+        break;
+      case '003':
+        this.hintText =
+          '人力したモールス信号のテキスト(カタカナ)が出力されます';
+        break;
+    }
+  }
+
+  public hintText: string;
 }
