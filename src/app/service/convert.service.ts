@@ -6,6 +6,8 @@ import mapping from '../../assets/mapping.json';
 })
 export class ConvertService {
   public morseMap: Map<string, string>;
+  public japaneseMap: Map<string, string>;
+  public englishMap: Map<string, string>;
 
   constructor() {
     this.morseMap = new Map<string, string>();
