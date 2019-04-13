@@ -15,7 +15,7 @@ export class ConvertService {
   }
 
   /**
-   *
+   * 文字列を1文字に分割してからモールス信号に変換する。
    *
    * @param {string} [text=''] 入力フォームの文字列
    * @returns {string} 変換後の文字列
@@ -28,7 +28,7 @@ export class ConvertService {
   }
 
   /**
-   *
+   * 1文字ずつモールス信号に変換する。
    *
    * @private
    * @param {string[]} textList 入力フォームの文字配列
