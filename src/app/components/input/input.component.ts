@@ -11,8 +11,19 @@ import { ConvertService } from 'src/app/service/convert.service';
 export class InputComponent implements OnInit {
   public inputForm: FormGroup;
   public japaneseControl: FormControl;
+  public placeholderText: string;
 
-  @Input() convertType: string;
+  @Input()
+  set convertType(convertType: string) {
+    switch (convertType) {
+      case '001':
+        this.placeholderText = 'テキストを入力';
+        break;
+      case '002':
+      case '003':
+        this.placeholderText = 'モールス信号を入力';
+    }
+  }
   @Output() inputText = new EventEmitter<string>();
 
   constructor(

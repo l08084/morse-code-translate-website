@@ -1,6 +1,6 @@
 <form class="input-form" [formGroup]="inputForm">
   <mat-form-field appearance="outline" class="input-full-width">
-    <textarea matInput rows="5" placeholder="テキストを入力" formControlName="japanese"></textarea>
+    <textarea matInput rows="5" placeholder="{{placeholderText}}" formControlName="japanese"></textarea>
     <mat-hint align="start"><strong>ひらがな、カタカナ、半角英数字のいずれかを入力してください</strong> </mat-hint>
   </mat-form-field>
 </form>

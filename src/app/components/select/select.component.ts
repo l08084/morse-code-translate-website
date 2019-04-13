@@ -23,7 +23,7 @@ export class SelectComponent implements OnInit {
 
   private createForm() {
     this.selectForm = this.builder.group({
-      convertType: ['', []]
+      convertType: ['001', []]
     });
 
     this.selectForm
