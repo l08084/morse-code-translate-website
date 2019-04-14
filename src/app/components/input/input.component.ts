@@ -23,16 +23,19 @@ export class InputComponent implements OnInit {
         this.hintText =
           'ひらがな、カタカナ、半角英数字のいずれかを入力してください';
         this.languageType = '001';
+        this.inputForm.reset();
         break;
       case '002':
         this.placeholderText = `モールス信号を入力(ツーは'_'、トンは'.'、文字の間隔は半角スペース)`;
         this.hintText = `モールス信号を入力してください(ツーは'_'、トンは'.'、文字の間隔は半角スペースでお願いします)`;
         this.languageType = '002';
+        this.inputForm.reset();
         break;
       case '003':
         this.placeholderText = `モールス信号を入力(ツーは'_'、トンは'.'、文字の間隔は半角スペース)`;
         this.hintText = `モールス信号を入力してください(ツーは'_'、トンは'.'、文字の間隔は半角スペースでお願いします)`;
         this.languageType = '003';
+        this.inputForm.reset();
     }
   }
   @Output() inputText = new EventEmitter<string>();
@@ -63,6 +66,9 @@ export class InputComponent implements OnInit {
       .get('japanese')
       .valueChanges.pipe(debounceTime(500))
       .subscribe(text => {
+        if (!text) {
+          return;
+        }
         switch (this.languageType) {
           case '001':
             this.inputText.emit(this.convertService.convertToMorseCode(text));

@@ -12,14 +12,17 @@ export class OutputComponent {
     switch (convertType) {
       case '001':
         this.hintText = '入力したテキストのモールス信号が出力されます';
+        this.text = '';
         break;
       case '002':
         this.hintText =
           '人力したモールス信号のテキスト(アルファベット)が出力されます';
+        this.text = '';
         break;
       case '003':
         this.hintText =
           '人力したモールス信号のテキスト(カタカナ)が出力されます';
+        this.text = '';
         break;
     }
   }
