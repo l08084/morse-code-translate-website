@@ -52,6 +52,11 @@ export class InputComponent implements OnInit {
     this.japaneseControl = this.inputForm.get('japanese') as FormControl;
   }
 
+  /**
+   * フォームの初期設定をする。
+   *
+   * @memberof InputComponent
+   */
   private createForm() {
     this.inputForm = this.builder.group({
       japanese: ['', []]
@@ -60,6 +65,11 @@ export class InputComponent implements OnInit {
     this.convert();
   }
 
+  /**
+   * 変換ロジックを呼び出す。
+   *
+   * @memberof InputComponent
+   */
   private convert() {
     // 入力フォームの値が変更された場合、500ミリ秒間隔で値を取得する
     this.inputForm

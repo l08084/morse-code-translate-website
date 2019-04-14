@@ -113,9 +113,13 @@ export class ConvertService {
     // 初期化
     this.englishMap = new Map<string, string>();
 
-    // 日本語のモールス信号へのマッピング
+    // 英語のモールス信号へのマッピング
     mapping.outputMorseEn.forEach((code, index) => {
       this.englishMap.set(code, mapping.uppercaseAlphabet[index]);
+    });
+
+    mapping.outputMorseNum.forEach((code, index) => {
+      this.englishMap.set(code, mapping.numbers[index]);
     });
   }
 
@@ -126,6 +130,10 @@ export class ConvertService {
     // 日本語のモールス信号へのマッピング
     mapping.outputMorseJp.forEach((code, index) => {
       this.japaneseMap.set(code, mapping.katakana[index]);
+    });
+
+    mapping.outputMorseNum.forEach((code, index) => {
+      this.japaneseMap.set(code, mapping.numbers[index]);
     });
   }
 }
