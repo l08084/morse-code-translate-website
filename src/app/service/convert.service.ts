@@ -27,6 +27,16 @@ export class ConvertService {
     return morseCodeList.join('  ');
   }
 
+  public convertToJapanese(text = ''): string {
+    console.log(text);
+    return text;
+  }
+
+  public convertToEnglish(text = ''): string {
+    console.log(text);
+    return text;
+  }
+
   /**
    * 1文字ずつモールス信号に変換する。
    *

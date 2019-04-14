@@ -13,6 +13,7 @@ export class InputComponent implements OnInit {
   public japaneseControl: FormControl;
   public placeholderText: string;
   public hintText: string;
+  public languageType: string;
 
   @Input()
   set convertType(convertType: string) {
@@ -21,11 +22,17 @@ export class InputComponent implements OnInit {
         this.placeholderText = 'テキストを入力';
         this.hintText =
           'ひらがな、カタカナ、半角英数字のいずれかを入力してください';
+        this.languageType = '001';
         break;
       case '002':
+        this.placeholderText = `モールス信号を入力(ツーは'_'、トンは'.'、文字の間隔は半角スペース)`;
+        this.hintText = `モールス信号を入力してください(ツーは'_'、トンは'.'、文字の間隔は半角スペースでお願いします)`;
+        this.languageType = '002';
+        break;
       case '003':
         this.placeholderText = `モールス信号を入力(ツーは'_'、トンは'.'、文字の間隔は半角スペース)`;
         this.hintText = `モールス信号を入力してください(ツーは'_'、トンは'.'、文字の間隔は半角スペースでお願いします)`;
+        this.languageType = '003';
     }
   }
   @Output() inputText = new EventEmitter<string>();
@@ -56,7 +63,17 @@ export class InputComponent implements OnInit {
       .get('japanese')
       .valueChanges.pipe(debounceTime(500))
       .subscribe(text => {
-        this.inputText.emit(this.convertService.convertToMorseCode(text));
+        switch (this.languageType) {
+          case '001':
+            this.inputText.emit(this.convertService.convertToMorseCode(text));
+            break;
+          case '002':
+            this.inputText.emit(this.convertService.convertToEnglish(text));
+            break;
+          case '003':
+            this.inputText.emit(this.convertService.convertToJapanese(text));
+            break;
+        }
       });
   }
 }
