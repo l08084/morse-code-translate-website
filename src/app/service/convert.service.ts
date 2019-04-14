@@ -118,8 +118,14 @@ export class ConvertService {
       this.englishMap.set(code, mapping.uppercaseAlphabet[index]);
     });
 
+    // 数字のマッピング
     mapping.outputMorseNum.forEach((code, index) => {
       this.englishMap.set(code, mapping.numbers[index]);
+    });
+
+    // 記号のマッピング
+    mapping.outputSymbolEn.forEach((code, index) => {
+      this.englishMap.set(code, mapping.inputSymbolEn[index]);
     });
   }
 
@@ -132,8 +138,14 @@ export class ConvertService {
       this.japaneseMap.set(code, mapping.katakana[index]);
     });
 
+    // 数字のマッピング
     mapping.outputMorseNum.forEach((code, index) => {
       this.japaneseMap.set(code, mapping.numbers[index]);
+    });
+
+    // 記号のマッピング
+    mapping.outputSymbolJp.forEach((code, index) => {
+      this.japaneseMap.set(code, mapping.inputSymbolJp[index]);
     });
   }
 }
