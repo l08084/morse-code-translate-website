@@ -23,18 +23,27 @@ export class ConvertService {
    * @memberof ConvertService
    */
   public convertToMorseCode(text = ''): string {
+    if (!text) {
+      return '';
+    }
     const textList = text.trim().split('');
     const morseCodeList = this.mapping(textList);
     return morseCodeList.join('  ');
   }
 
   public convertToJapanese(text = ''): string {
+    if (!text) {
+      return '';
+    }
     const textList = text.trim().split(' ');
     const morseCodeList = this.mappingJp(textList);
     return morseCodeList.join('');
   }
 
   public convertToEnglish(text = ''): string {
+    if (!text) {
+      return '';
+    }
     const textList = text.trim().split(' ');
     const morseCodeList = this.mappingEn(textList);
     return morseCodeList.join('');

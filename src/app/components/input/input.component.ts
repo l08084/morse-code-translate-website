@@ -66,9 +66,6 @@ export class InputComponent implements OnInit {
       .get('japanese')
       .valueChanges.pipe(debounceTime(500))
       .subscribe(text => {
-        if (!text) {
-          return;
-        }
         switch (this.languageType) {
           case '001':
             this.inputText.emit(this.convertService.convertToMorseCode(text));
