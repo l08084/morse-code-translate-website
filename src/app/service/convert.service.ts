@@ -10,8 +10,9 @@ export class ConvertService {
   public englishMap: Map<string, string>;
 
   constructor() {
-    this.morseMap = new Map<string, string>();
     this.createMorseMap();
+    this.createEnglishMap();
+    this.createJapaneseMap();
   }
 
   /**
@@ -28,13 +29,15 @@ export class ConvertService {
   }
 
   public convertToJapanese(text = ''): string {
-    console.log(text);
-    return text;
+    const textList = text.trim().split(' ');
+    const morseCodeList = this.mappingJp(textList);
+    return morseCodeList.join('');
   }
 
   public convertToEnglish(text = ''): string {
-    console.log(text);
-    return text;
+    const textList = text.trim().split(' ');
+    const morseCodeList = this.mappingEn(textList);
+    return morseCodeList.join('');
   }
 
   /**
@@ -51,6 +54,18 @@ export class ConvertService {
     );
   }
 
+  private mappingJp(textList: string[]): string[] {
+    return textList.map(text =>
+      this.japaneseMap.has(text) ? this.japaneseMap.get(text) : ''
+    );
+  }
+
+  private mappingEn(textList: string[]): string[] {
+    return textList.map(text =>
+      this.englishMap.has(text) ? this.englishMap.get(text) : ''
+    );
+  }
+
   /**
    * 日本語・アルファベットがKey、
    * モールス信号がValueになるMapを作成する。
@@ -59,6 +74,9 @@ export class ConvertService {
    * @memberof ConvertService
    */
   private createMorseMap(): void {
+    // 初期化
+    this.morseMap = new Map<string, string>();
+
     // 日本語のモールス信号へのマッピング
     mapping.morseJp.forEach((code, index) => {
       this.morseMap.set(mapping.hiragana[index], code);
@@ -79,6 +97,26 @@ export class ConvertService {
     // 記号のモールス信号へのマッピング
     mapping.morseSymbol.forEach((code, index) => {
       this.morseMap.set(mapping.symbol[index], code);
+    });
+  }
+
+  private createEnglishMap(): void {
+    // 初期化
+    this.englishMap = new Map<string, string>();
+
+    // 日本語のモールス信号へのマッピング
+    mapping.outputMorseEn.forEach((code, index) => {
+      this.englishMap.set(code, mapping.uppercaseAlphabet[index]);
+    });
+  }
+
+  private createJapaneseMap(): void {
+    // 初期化
+    this.japaneseMap = new Map<string, string>();
+
+    // 日本語のモールス信号へのマッピング
+    mapping.outputMorseJp.forEach((code, index) => {
+      this.japaneseMap.set(code, mapping.katakana[index]);
     });
   }
 }
