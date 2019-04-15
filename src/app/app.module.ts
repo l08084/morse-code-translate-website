@@ -14,6 +14,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SelectComponent } from './components/select/select.component';
 import { ShareButtonComponent } from './components/share-button/share-button.component';
+import { DescriptionComponent } from './components/description/description.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { ShareButtonComponent } from './components/share-button/share-button.com
     OutputComponent,
     SelectComponent,
     HeaderComponent,
+    DescriptionComponent,
     ShareButtonComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatCardModule,
     MatFormFieldModule,
     FormsModule,
     MatToolbarModule,
