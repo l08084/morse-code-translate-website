@@ -1,4 +1,7 @@
 <app-header></app-header>
-<app-select (sendConvertType)="onSendConvertType($event)"></app-select>
-<app-input [convertType]="setConvertType" (inputText)="onInput($event)"></app-input>
-<app-output [convertType]="setConvertType" [text]="setText"></app-output>
+<div class="wrapper">
+  <app-select (sendConvertType)="onSendConvertType($event)"></app-select>
+  <app-input [convertType]="setConvertType" (inputText)="onInput($event)"></app-input>
+  <app-output [convertType]="setConvertType" [text]="setText"></app-output>
+  <app-share-button></app-share-button>
+</div>

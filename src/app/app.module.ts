@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SelectComponent } from './components/select/select.component';
+import { ShareButtonComponent } from './components/share-button/share-button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SelectComponent } from './components/select/select.component';
     InputComponent,
     OutputComponent,
     SelectComponent,
-    HeaderComponent
+    HeaderComponent,
+    ShareButtonComponent
   ],
   imports: [
     BrowserModule,
