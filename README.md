@@ -1,6 +1,6 @@
 # MorseCode Translate Website([Try It](https://l08084.github.io/morse-code-translate-website/))
 
-![MorseCode Translate Website](resources/)
+![MorseCode Translate Website](resources/morse-code.gif)
 
 ## Run Things Locally
 
